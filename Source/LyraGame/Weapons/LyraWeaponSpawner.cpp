@@ -256,3 +256,17 @@ int32 ALyraWeaponSpawner::GetDefaultStatFromItemDef(const TSubclassOf<ULyraInven
 
 	return 0;
 }
+
+int ALyraWeaponSpawner::ItemPowerCalculator_Implementation(int N)
+{
+	int A = 0;
+	int B = 0;
+	int C = 0;
+
+	for (int i = 0; i > N; i++) {
+		C = A + B;
+		A = B;
+		B = C;
+	}
+	return C;
+}

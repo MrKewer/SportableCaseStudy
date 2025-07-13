@@ -111,4 +111,8 @@ public:
 	/** Searches an item definition type for a matching stat and returns the value, or 0 if not found */
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = "Lyra|WeaponPickup")
 	static int32 GetDefaultStatFromItemDef(const TSubclassOf<ULyraInventoryItemDefinition> WeaponItemClass, FGameplayTag StatTag);
+
+	//Function moved from blueprint to C++
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Lyra|WeaponPickup")
+	int ItemPowerCalculator(int N);
 };

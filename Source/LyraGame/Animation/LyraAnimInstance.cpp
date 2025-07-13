@@ -42,7 +42,7 @@ void ULyraAnimInstance::NativeInitializeAnimation()
 	Super::NativeInitializeAnimation();
 
 	UTexture2D* CurrentFrameTexture = UTexture2D::CreateTransient(1920, 1080, PF_B8G8R8A8);
-	CurrentFrameTexture->MipGenSettings = TMGS_NoMipmaps;
+	//CurrentFrameTexture->MipGenSettings = TMGS_NoMipmaps;
 	// The Texture Can Be Removed
 
 	if (AActor* OwningActor = GetOwningActor())

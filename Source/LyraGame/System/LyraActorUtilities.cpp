@@ -8,8 +8,37 @@
 
 EBlueprintExposedNetMode ULyraActorUtilities::SwitchOnNetMode(const UObject* WorldContextObject)
 {
-	// This code is intentioanlly missing.
-	// The correct cpp file can be downloaded from this link
-	// https://www.dropbox.com/scl/fi/0bcqlxmcjusldiht3stzr/LyraActorUtilities.cpp?rlkey=ba1jw0rfjr0pwlpx8apfji68d&st=jhivfl97&dl=0
+
+	ENetMode NetMode = NM_Standalone;
+	for (const UObject* TestObject = WorldContextObject; TestObject != nullptr; TestObject = TestObject->GetOuter())
+	{
+		if (const UActorComponent* Component = Cast<const UActorComponent>(WorldContextObject))
+		{
+			NetMode = Component->GetNetMode();
+			break;
+		}
+		else if (const AActor* Actor = Cast<const AActor>(WorldContextObject))
+		{
+			NetMode = Actor->GetNetMode();
+			break;
+		}
+	}
+
+
+	switch (NetMode)
+	{
+	case NM_Client:
+		return EBlueprintExposedNetMode::Client;
+	case NM_Standalone:
+		return EBlueprintExposedNetMode::Standalone;
+	case NM_DedicatedServer:
+		return EBlueprintExposedNetMode::DedicatedServer;
+	case NM_ListenServer:
+		return EBlueprintExposedNetMode::ListenServer;
+	default:
+		ensure(false);
+		return EBlueprintExposedNetMode::Standalone;
+	}
+
 }
 

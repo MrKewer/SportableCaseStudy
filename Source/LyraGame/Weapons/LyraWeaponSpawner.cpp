@@ -263,7 +263,7 @@ int ALyraWeaponSpawner::ItemPowerCalculator_Implementation(int N)
 	int B = 0;
 	int C = 0;
 
-	for (int i = 0; i > N; i++) {
+	for (int i = 0; i < N; i++) {
 		C = A + B;
 		A = B;
 		B = C;

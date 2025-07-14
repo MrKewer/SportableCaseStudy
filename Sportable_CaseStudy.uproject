@@ -329,6 +329,10 @@
 		{
 			"Name": "GameplayBehaviors",
 			"Enabled": true
+		},
+		{
+			"Name": "GBSNats",
+			"Enabled": false
 		}
 	],
 	"EpicSampleNameHash": "451731683"
